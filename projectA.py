@@ -106,6 +106,7 @@ def elimination(board, piece_pos, prev_pos):
     # check whether the current white piece is surrounding black color piece
     # then check whether another white color piece is surrounding the
     # black color piece
+    
     # check east
     
     if (piece_pos[COL] + 1 < MAX_COL and 
@@ -137,6 +138,7 @@ def elimination(board, piece_pos, prev_pos):
   
     # now we check whether the current white piece is instead being
     # surrounded by black pieces
+    
     # check east-west
     if ((piece_pos[COL] + 1 < MAX_COL) and 
         (new_board[piece_pos[ROW]][piece_pos[COL] + 1] in (BLACK, CORNER))
@@ -145,9 +147,9 @@ def elimination(board, piece_pos, prev_pos):
         east_pos = [piece_pos[ROW], piece_pos[COL] + 1]
         west_pos = [piece_pos[ROW], piece_pos[COL] - 1]
         if ((is_black_eliminated(eliminate, east_pos) is False) and
-                (is_black_eliminated(eliminate, west_pos) is False)):        
-                                                      
+                (is_black_eliminated(eliminate, west_pos) is False)):                                   
             eliminate.append([piece_pos[ROW], piece_pos[COL]])
+            
     # check north-south
     if ((piece_pos[ROW] + 1 < MAX_ROW) and 
         (new_board[piece_pos[ROW] + 1][piece_pos[COL]] in (BLACK, CORNER))
